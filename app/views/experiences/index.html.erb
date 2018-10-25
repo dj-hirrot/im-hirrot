@@ -1,0 +1,61 @@
+<div class="experience-top-img mb-5 bai-jamjuree">
+  <div class="top-title">
+    <h1>Hiroto Shibutani</h1>
+    <p>You know who I am.</p>
+    <%= link_to blogs_path, class: 'btn btn-dark btn-lg' do %>
+      What one likes, one will do well
+    <% end %>
+  </div>
+</div>
+
+<div class="container">
+  <h1 class="profile-heading"><span>Career</span></h1>
+</div>
+
+<% if current_user.admin? %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-9">
+        <%= link_to '経歴を追加', new_experience_path, class: 'btn btn-success' %>
+      </div>
+    </div>
+  </div>
+<% end %>
+
+<section class="cd-timeline js-cd-timeline">
+  <div class="cd-timeline__container">
+    <% @experiences.each do |experience| %>
+      <div class="cd-timeline__block js-cd-block">
+        <div class="cd-timeline__img cd-timeline__img--picture js-cd-img">
+        </div>
+
+        <div class="cd-timeline__content js-cd-content">
+          <h2><%= experience.title %></h2>
+          <p><%= experience.description %></p>
+          <%= link_to '詳細', experience_path(experience), class: 'btn btn-light' %>
+          <%= link_to '参考URL', experience.reference_url, class: 'btn btn-secondary' %>
+          <% if current_user.admin? %>
+            <%= link_to '削除', experience_path(experience), method: :delete, class: 'btn btn-danger' %>
+          <% end %>
+          <span class="cd-timeline__date">
+            <%= experience.beginning_at.try(:strftime, '%Y年%m月') %> 〜 <%= experience.quit_at.nil? ? '在職中' : experience.quit_at.strftime('%Y年%m月') %>
+          </span>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="cd-timeline__block js-cd-block">
+      <div class="cd-timeline__img cd-timeline__img--movie js-cd-img">
+      </div>
+
+      <div class="cd-timeline__content js-cd-content">
+        <h2>そして人生は続いていく</h2>
+        <p>
+          知識に対するのどの渇きを潤せ<br />
+          Quench your thirst for knowledge...
+        </p>
+        <span class="cd-timeline__date"><%= Date.today.strftime('%Y年%m月') %></span>
+      </div>
+    </div>
+  </div>
+</section>

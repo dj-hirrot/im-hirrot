@@ -1,0 +1,28 @@
+<%= form_for(@user, url: registration_path(@user), html: { class: 'login'} ) do |f| %>
+  <fieldset>
+    <legend class="legend">Sign up</legend>
+    <div class="input">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <span><i class="far fa-envelope"></i></span>
+    </div>
+    <div class="input">
+      <%= f.password_field :password, autocomplete: "off" %>
+      <span><i class="fa fa-lock"></i></span>
+    </div>
+    <div class="input">
+    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+      <span><i class="far fa-check-circle"></i></span>
+    </div>
+
+    <div class="row mb-5">
+      <div class="col-md-8 mx-auto">
+        <%= link_to 'ログインページはこちら', new_user_session_path, class: 'btn btn-dark' %>
+      </div>
+    </div>
+    <button type="submit" class="submit"><i class="fas fa-sign-in-alt"></i></button>
+  </fieldset>
+  <div class="feedback">
+    login successful <br />
+    redirecting...
+  </div>
+<% end %>

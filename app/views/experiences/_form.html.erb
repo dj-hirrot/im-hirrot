@@ -1,0 +1,43 @@
+<div class="row">
+  <div class="col-md-5 mx-auto">
+    <%= form_with(model: experience, url: url, local: true) do |form| %>
+      <div class="form-group">
+        <%= form.label '学校名/会社名' %>
+        <%= form.text_field :title, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label '概要' %>
+        <%= form.text_area :description, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label '開始年月' %>
+        <%= form.date_field :beginning_at, class: 'form-control' %>
+      </div>
+
+      <div class="checkbox">
+        <label>
+          <%= check_box_tag :quit_at_check_box %>
+          在籍中の場合
+        </label>
+      </div>
+
+      <div id="quit_at_wrap" class="form-group">
+        <%= form.label '終了年月' %>
+        <%= form.date_field :quit_at, class: 'form-control' %>
+      </div>
+
+      <div class="form-group">
+        <%= form.label 'URL' %>
+        <%= form.text_field :reference_url, class: 'form-control' %>
+      </div>
+
+      <div class="actions">
+        <%= form.submit btn_txt, class: 'btn btn-dark' %>
+        <%= link_to '詳細画面に戻る', experience_path(experience), class:'btn btn-secondary' if action_name == 'edit' %>
+        <%= link_to '一覧画面に戻る', experiences_path, class:'btn btn-light' %>
+      </div>
+    <% end %>
+  </div>
+</div>

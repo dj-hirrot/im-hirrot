@@ -1,0 +1,132 @@
+<div class="page-top-img mb-5 bai-jamjuree">
+  <div class="top-title">
+    <h1>Hiroto Shibutani</h1>
+    <p>You know who I am.</p>
+    <%= link_to blogs_path, class: 'btn btn-dark btn-lg' do %>
+      What one likes, one will do well
+    <% end %>
+  </div>
+</div>
+
+
+<div class="container">
+  <h1 class="profile-heading"><span>PROFILE</span></h1>
+  <div class="row my-2">
+    <div class="col-md-8">
+      <h2>渋谷 宥仁 Hiroto Shibutani(24)</h2>
+      <p>
+        1994年8月4日 August 4, 1994<br>
+        神奈川県川崎市出身 Kawasaki, Kanagawa, Japan
+      </p>
+      <p>
+        Webエンジニアを2015年から職業としています。経験言語はRubyが主で、申し訳程度にVC#(WEBで動作するゲーム開発), C#(Unityでのゲーム開発), Python(個人開発のなんちゃって画像解析で使用)も経験しています。
+        高校卒業後周りと同じように大学進学しましたが、なかなか自分のやりたいことが大学の中で見つけられず"それならもう社会に出て実際に見た方が早いんじゃね？"みたいな感じで思い切って大学中退しました。
+        社会人一年目でプログラミンで出会い、紆余曲折を経て現在に至ってます。
+      </p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag 'page/top/profile-1.png', class: 'full-img' %>
+    </div>
+  </div>
+
+  <h1 class="profile-heading"><span>SKILLS</span></h1>
+  <div class="row my-2">
+    <div id="tabs-wrapper">
+      <div class="tabs clearfix">
+        <ul class="tab clearfix">
+          <li class="active select"><a href="">Langage</a></li>
+          <li><a href="">ADE</a></li>
+          <li><a href="">Tool</a></li>
+          <li><a href="">Communication</a></li>
+        </ul>
+      </div>
+    </div>
+    <ul class="tab-content my-5">
+      <li>
+        <% @languages.each do |language| %>
+          <div class="skillbar clearfix" data-percent="<%= language.level %>%">
+            <div class="skillbar-title" style="background: #333;"><span><%= language.name %></span></div>
+            <div class="skillbar-bar" style="background: #555;"></div>
+            <div class="skill-bar-percent"><%= language.level %>%</div>
+          </div>
+        <% end %>
+      </li>
+      <li class="hide">
+        <% @ades.each do |ade| %>
+          <div class="skillbar clearfix" data-percent="<%= ade.level %>%">
+            <div class="skillbar-title" style="background: #333;"><span><%= ade.name %></span></div>
+            <div class="skillbar-bar" style="background: #555;"></div>
+            <div class="skill-bar-percent"><%= ade.level %>%</div>
+          </div>
+        <% end %>
+      </li>
+      <li class="hide">
+        <% @tools.each do |tool| %>
+          <div class="skillbar clearfix" data-percent="<%= tool.level %>%">
+            <div class="skillbar-title" style="background: #333;"><span><%= tool.name %></span></div>
+            <div class="skillbar-bar" style="background: #555;"></div>
+            <div class="skill-bar-percent"><%= tool.level %>%</div>
+          </div>
+        <% end %>
+      </li>
+      <li class="hide">
+        <% @communications.each do |communication| %>
+          <div class="skillbar clearfix" data-percent="<%= communication.level %>%">
+            <div class="skillbar-title" style="background: #333;"><span><%= communication.name %></span></div>
+            <div class="skillbar-bar" style="background: #555;"></div>
+            <div class="skill-bar-percent"><%= communication.level %>%</div>
+          </div>
+        <% end %>
+      </li>
+    </ul>
+  </div>
+
+  <h1 class="profile-heading"><span>THINGS I'M INTERESTED IN</span></h1>
+  <div class="row my-2">
+    <div class="col-md-4">
+      <%= image_tag 'page/top/deeplearning-1.png', class: 'full-img' %>
+      <%= image_tag 'page/top/deeplearning-2.png', class: 'full-img' %>
+    </div>
+    <div class="col-md-8">
+      <h2>機械学習</h2>
+      <p>
+        最近は機械学習に興味があります。特に深層学習およびニューラルネットワークが面白くて休日は論文を読んだりしてます。<br />
+        <%= link_to 'この記事', 'http://www.itmedia.co.jp/news/articles/1611/29/news009.html' %>を読んで単純に面白いなとも思ったのがきっかけ。<br />
+        理解できているかは置いといて、休日にたまに論文を読んだりしています。<br />
+        中でも畳み込みニューラルネットは無限の可能性を感じています。今後積極的に<%= link_to 'ブログ', blogs_path %>に学んだことをあげたいと考えています。<br />
+        画像解析の部分から進めていて、そろそろ実際の業務でも役立つレベルの知識は最低限つけていきたいと考えています。<br />
+        機械学習などの分野はアカデミックな経歴が必要なイメージですが、業務としてぜひ取り組みたい分野の一つです。
+      </p>
+    </div>
+  </div>
+
+  <h1 class="profile-heading"><span>HOBBY</span></h1>
+  <div class="row my-2">
+    <div class="col-md-8">
+      <h2>カメラ・映像編集</h2>
+      <p>
+        祖父の影響で最近カメラを持って出かけるのが趣味になりました。最近だと鎌倉に行って一日で集まった素材を使って一本の動画を作ったり、グアムに旅行に行った時集まった素材で動画を作ったりしました。<br />
+        一人でも楽しめる代償にたまにすごく寂しくなって涙を流してしまうのもまた粋ですね。<br />
+        何かを失わずして得ることはできないのだという摂理も学ばせてくれるとてもいい趣味です。<br />
+        一人だとすごく寂しいので、カメラがお好きな方は是非お誘いください。
+      </p>
+    </div>
+    <div class="col-md-4">
+      <%= image_tag 'page/top/hobby-1.jpg', class: 'full-img' %>
+    </div>
+  </div>
+  <div class="row my-2">
+    <div class="col-md-4">
+      <%= image_tag 'page/top/hobby-2.jpg', class: 'full-img' %>
+    </div>
+    <div class="col-md-8">
+      <h2>スケボー</h2>
+      <p>
+        ストリート系のスケボーにはまってます。<br />
+        写真の通りものを超えたりすることはできるのですが、あのくるくる回したり超絶長くて高い階段とかを飛び降りたりはできないのでもっと練習が必要です。<br />
+        普通のボード以外にも、クルーザーも持っていて、前職では駅から職場(原宿)までクルーザーで風を切って出勤するという少しおしゃれでイキったこともしたりしてました。<br />
+        スケボーのお誘いも待ってます。
+      </p>
+    </div>
+  </div>
+</div>

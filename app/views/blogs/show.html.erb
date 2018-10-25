@@ -1,0 +1,21 @@
+<div class="container">
+  <h1 class="profile-heading"><span><%= @blog.title %></span></h1>
+  <div class="row">
+    <div class="col-md-9 mx-auto area-break">
+      <div class="text-right">
+        <% if @blog.is_publish? %>
+          <span class="badge badge-success">公開中</span>
+        <% else %>
+          <span class="badge badge-warning">未公開</span>
+        <% end %>
+        <%= @blog.published_on %>
+      </div>
+      <div class="mb-5">
+        <%= markdown(@blog.content).html_safe %>
+      </div>
+      <%= link_to '一覧へ戻る', blogs_path, class: 'btn btn-secondary' %>
+      <%= link_to '編集する', edit_blog_path(@blog), class: 'btn btn-dark' %>
+      <%= link_to '削除する', blog_path(@blog), class: 'btn btn-danger', method: :delete, data: { confirm: '一度行った処理は戻せません。本当に削除しますか？' } %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-4 bai-jamjuree">
+      <h1 class="blog-name"><i class="fab fa-blogger"></i> SignHack's Blog</h1>
+      <% if current_user.try(:admin?) %>
+        <%= link_to 'New Blog', new_blog_path, class: 'btn btn-dark btn-lg' %>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+      <% @blogs.each do |blog| %>
+        <%= link_to blog, class: 'not-underline' do %>
+          <article class="media">
+            <div class="media-image-area">
+              <%= image_tag 'all/small-no-image.png', class: 'media-image-thumb' %>
+            </div>
+            <div class="media-body">
+              <div class="media-info">
+                <%= blog.is_publish? ? "#{blog.published_on.strftime('%Y年%m月%d日')}に投稿" : '未公開の記事' %>
+              </div>
+              <div class="media-title">
+                <%= blog.title %>
+              </div>
+              <div class="media-tags">
+                <ul class="tag-list clearfix">
+                  <li class="tag-list-item">タグ機能は実装途中です。タグで絞り込みや並び替えができるようになる想定です。</li>
+                </ul>
+              </div>
+            </div>
+          </article>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>

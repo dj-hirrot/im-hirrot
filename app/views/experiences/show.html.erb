@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-5 mx-auto">
+      <h1 class="profile-heading"><span><%= @experience.title %></span></h1>
+      <h2>概要</h2>
+      <p><%= @experience.description %></p>
+      <p><%= @experience.beginning_at.try(:strftime, '%Y年%m月') %>〜<%= @experience.quit_at.nil? ? '在職中' : @experience.quit_at.strftime('%Y年%m月') %></p>
+      <h2>URL</h2>
+      <p><%= link_to @experience.reference_url, @experience.reference_url %></p>
+      <%= link_to '一覧に戻る', experiences_path, class: 'btn btn-light' %>
+      <% if current_user.admin? %>
+        <%= link_to '編集する', edit_experience_path(@experience), class: 'btn btn-dark' %>
+      <% end %>
+    </div>
+  </div>
+</div>

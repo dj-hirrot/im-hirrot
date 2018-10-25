@@ -1,0 +1,35 @@
+<%= form_for(@user, url: session_path(@user), html: { class: 'login' }) do |f| %>
+  <fieldset>
+    <legend class="legend">Log in</legend>
+    <div class="input">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <span><i class="far fa-envelope"></i></span>
+    </div>
+    <div class="input">
+      <%= f.password_field :password, autocomplete: "off" %>
+      <span><i class="fa fa-lock"></i></span>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <div class="row">
+        <div class="col-md-8 mx-auto">
+          <label class="checkbox">
+            <%= f.check_box :remember_me %>
+            次回から自動ログイン
+          </label>
+        </div>
+      </div>
+    <% end -%>
+    <div class="row mb-5">
+      <div class="col-md-8 mx-auto">
+        <%= link_to '新規登録ページはこちら', new_user_registration_path, class: 'btn btn-dark' %>
+      </div>
+    </div>
+
+    <button type="submit" class="submit"><i class="fas fa-sign-in-alt"></i></button>
+  </fieldset>
+  <div class="feedback">
+    login successful <br />
+    redirecting...
+  </div>
+<% end %>

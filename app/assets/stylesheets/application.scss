@@ -1,0 +1,55 @@
+@import "bootstrap";
+@import "nav";
+@import "page";
+@import "experiences";
+@import "blogs";
+@import "devise";
+// all
+html
+{
+  font-size: 62.5%;
+}
+
+body
+{
+  font-size: 1.6rem;
+  width: 100%;
+  height: 100vh;
+  display: table;
+  font-family: "Noto Sans Japanese";
+}
+
+main
+{
+  margin-top: 80px;
+}
+
+.hide
+{
+  display: none;
+}
+
+.bai-jamjuree
+{
+  font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.container
+{
+  margin-top: 30px;
+}
+
+.area-break
+{
+  word-wrap: break-word;
+}
+
+.not-underline
+{
+  text-decoration: none;
+}
+
+.not-underline:hover
+{
+  text-decoration: none;
+}

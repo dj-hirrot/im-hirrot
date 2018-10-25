@@ -1,0 +1,25 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">管理画面</h1>
+    <p>ユーザーの承認や記事の公開・非公開を操作する</p>
+    <%= link_to 'TOP', root_path, class: 'btn btn-dark btn-lg' %>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-4">
+      <h2>ユーザー管理</h2>
+      <p>ユーザーの承認や削除などを行う</p>
+      <p>
+        <%= link_to '一覧ページ', admin_users_path, class: 'btn btn-secondary' %>
+      </p>
+    </div>
+    <div class="col-md-4">
+      <h2>ブログ管理</h2>
+      <p>ブログの公開・非公開や削除などを行う</p>
+      <p>
+        <%= link_to '一覧ページ', admin_blogs_path, class: 'btn btn-secondary' %>
+      </p>
+    </div>
+  </div>
+</div>
