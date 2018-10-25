@@ -20,6 +20,9 @@ gem 'jquery-rails'
 # devise
 gem 'devise'
 
+# devise
+gem 'dotenv-rails'
+
 # MarkDown
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
