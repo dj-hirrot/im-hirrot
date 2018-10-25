@@ -1,6 +1,8 @@
 Rails.application.configure do
   # Settings specified here will take precedence over those in config/application.rb.
 
+  config.action_mailer.default_url_options = { :host => 'http://im-hirrot.herokuapp.com' }
+
   # Code is not reloaded between requests.
   config.cache_classes = true
 
@@ -91,4 +93,17 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Mailer
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port:                 587,
+    address:              'smtp.gmail.com',
+    domain:               'smtp.gmail.com',
+    user_name:            ENV['EMAIL_ADDRESS'],
+    password:             ENV["EMAIL_PASSWORD"],
+    authentication:       'login',
+    enable_starttls_auto: true
+  }
 end
