@@ -31,7 +31,7 @@
 
         <div class="cd-timeline__content js-cd-content">
           <h2><%= experience.title %></h2>
-          <p><%= experience.description %></p>
+          <p><%= experience.description.html_safe %></p>
           <%= link_to '詳細', experience_path(experience), class: 'btn btn-light' %>
           <%= link_to '参考URL', experience.reference_url, class: 'btn btn-secondary' %>
           <% if current_user.admin? %>
