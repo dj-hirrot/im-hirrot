@@ -19,8 +19,17 @@ nav
 
   ul
   {
-    padding-top: 80px;
-    padding-left: 80px;
+    @media all and (min-width: 480px)
+    {
+      padding-top: 80px;
+      padding-left: 80px;
+    }
+
+    @media all and (max-width: 480px)
+    {
+      padding-top: 80px;
+      padding-left: 10px;
+    }
 
     li
     {
@@ -52,12 +61,25 @@ nav
 
 .navToggle
 {
-  position: absolute;
-  width: 60px;
-  height: 60px;
-  top: 10px;
-  left: 80px;
-  transition-duration: 0.5s;
+  @media all and (min-width: 480px)
+  {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 80px;
+    transition-duration: 0.5s;
+  }
+
+  @media all and (max-width: 480px)
+  {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    top: 10px;
+    left: 10px;
+    transition-duration: 0.5s;
+  }
 
   .icon
   {

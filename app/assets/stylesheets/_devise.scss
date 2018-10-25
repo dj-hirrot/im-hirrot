@@ -1,12 +1,29 @@
-.login
+@media all and (min-width: 480px)
 {
-  position: relative;
-  top: 250px;
-  width: 500px;
-  display: table;
-  margin: -150px auto 0 auto;
-  background: #eee;
-  border-radius: 4px;
+  .login
+  {
+    position: relative;
+    top: 250px;
+    width: 500px;
+    display: table;
+    margin: -150px auto 0 auto;
+    background: #eee;
+    border-radius: 4px;
+  }
+}
+
+@media all and (max-width: 480px)
+{
+  .login
+  {
+    position: relative;
+    top: 250px;
+    width: 98%;
+    display: table;
+    margin: -150px auto 0 auto;
+    background: #eee;
+    border-radius: 4px;
+  }
 }
 
 .legend
