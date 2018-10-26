@@ -36,8 +36,10 @@
         <%= markdown(@blog.content).html_safe %>
       </div>
       <%= link_to '一覧へ戻る', blogs_path, class: 'btn btn-secondary' %>
-      <%= link_to '編集する', edit_blog_path(@blog), class: 'btn btn-dark' %>
-      <%= link_to '削除する', blog_path(@blog), class: 'btn btn-danger', method: :delete, data: { confirm: '一度行った処理は戻せません。本当に削除しますか？' } %>
+      <% if current_user.try(:admin?) %>
+        <%= link_to '編集する', edit_blog_path(@blog), class: 'btn btn-dark' %>
+        <%= link_to '削除する', blog_path(@blog), class: 'btn btn-danger', method: :delete, data: { confirm: '一度行った処理は戻せません。本当に削除しますか？' } %>
+      <% end %>
     </div>
   </div>
 </div>

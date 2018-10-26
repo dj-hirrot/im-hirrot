@@ -1,4 +1,5 @@
 class BlogsController < ApplicationController
+  before_action :authenticate_user!, only: []
   before_action :user_confirmed?, except: [:index, :show]
   before_action :is_admin?, except: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
@@ -6,7 +7,7 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    if current_user.admin?
+    if current_user.try(:admin?)
       @blogs = Blog.all.order(published_on: :desc)
     else
       @blogs = Blog.where(is_publish: true).order(published_on: :desc)
