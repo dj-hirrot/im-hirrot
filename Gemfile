@@ -22,9 +22,12 @@ gem 'devise'
 # devise
 gem 'dotenv-rails'
 
-# MarkDown
+# mark down
 gem 'redcarpet', '~> 2.3.0'
 gem 'coderay'
+
+# tags
+gem 'acts-as-taggable-on'
 
 group :development, :test do
   gem 'mysql2', '>= 0.4.4', '< 0.6.0'

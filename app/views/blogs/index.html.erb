@@ -21,11 +21,13 @@
               <div class="media-title">
                 <%= blog.title %>
               </div>
-              <div class="media-tags">
-                <ul class="tag-list clearfix">
-                  <li class="tag-list-item">タグ機能は実装途中です。タグで絞り込みや並び替えができるようになる想定です。</li>
-                </ul>
-              </div>
+                <div class="media-tags">
+                  <ul class="tag-list clearfix">
+                    <% blog.tag_list.each do |tag| %>
+                      <li class="tag-list-item"><%= tag %></li>
+                    <% end %>
+                  </ul>
+                </div>
             </div>
           </article>
         <% end %>

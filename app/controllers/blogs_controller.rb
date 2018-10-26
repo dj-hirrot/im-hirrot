@@ -66,6 +66,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :content, :public, :published_on)
+      params.require(:blog).permit(:title, :content, :public, :published_on, :tag_list)
     end
 end
