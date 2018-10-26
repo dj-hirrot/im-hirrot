@@ -1,6 +1,6 @@
 <%= form_for(@user, url: session_path(@user), html: { class: 'login' }) do |f| %>
   <fieldset>
-    <legend class="legend">Log in</legend>
+    <legend class="legend">ログイン</legend>
     <div class="input">
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
       <span><i class="far fa-envelope"></i></span>
