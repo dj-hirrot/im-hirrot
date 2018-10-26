@@ -14,11 +14,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   def create
     @user = User.new(user_params)
     @role = @user.build_role(auth: 'guest', is_confirm: false)
-    logger.debug('-------------------------------------------')
-    logger.debug(@role.inspect)
-    logger.debug('-------------------------------------------')
 
     if @user.save && @role.save
+      InfoMailer.with(user: @user).user_registration_complete.deliver_now
       redirect_to root_path, notice: '確認用のメールを送信しました'
     else
       flash.now[:alert] = '入力に誤りがあります'
