@@ -14,6 +14,7 @@ class Admin::HomeController < Admin::ApplicationController
     role = user.role
     role.is_confirm = true
     if role.save
+      InfoMailer.with(user: user).user_confirmed.deliver_now
       redirect_to admin_users_path, notice: "#{user.email}を承認しました"
     else
       redirect_to admin_users_path, alert: "承認に失敗しました"
