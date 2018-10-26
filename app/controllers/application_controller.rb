@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
 
   def user_confirmed?
     if signed_in? && current_user.role.is_confirm == false
-      redirect_to user_registration_path, alert: '未承認の為閲覧が制限されています'
+      redirect_to new_user_registration_path, alert: '未承認の為閲覧が制限されています'
     end
   end
 end
