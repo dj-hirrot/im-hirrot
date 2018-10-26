@@ -42,6 +42,8 @@ class BlogsController < ApplicationController
   # PATCH/PUT /blogs/1
   # PATCH/PUT /blogs/1.json
   def update
+    @blog.content = params[:blog][:content]
+
     if params[:preview] || !@blog.update(blog_params)
       render :edit
     else
