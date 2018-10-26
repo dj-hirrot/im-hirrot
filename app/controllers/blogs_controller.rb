@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :user_confirmed?
+  before_action :user_confirmed?, except: [:index, :show]
   before_action :is_admin?, except: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
 

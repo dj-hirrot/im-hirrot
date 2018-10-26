@@ -25,7 +25,7 @@
         <% else %>
           <span class="badge badge-warning">未公開</span>
         <% end %>
-        <%= @blog.published_on %>
+        <%= @blog.published_on.try(:strftime, '%y年%m月%d日') %>
       </div>
       <div class="mb-5">
         <% @blog.tag_list.each do |tag| %>
