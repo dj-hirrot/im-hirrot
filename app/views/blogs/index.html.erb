@@ -22,9 +22,15 @@
                 <%= blog.title %>
               </div>
                 <div class="media-tags">
-                  <ul class="tag-list clearfix">
+                  <ul class="tag-list clearfix d-none d-md-block">
                     <% blog.tag_list.each do |tag| %>
                       <li class="tag-list-item"><%= tag %></li>
+                    <% end %>
+                  </ul>
+                  <ul class="tag-list clearfix d-block d-md-none">
+                    <li class="tag-list-item"><%= blog.tag_list.first %></li>
+                    <% if blog.tag_list.size > 1 %>
+                      <li class="tag-list-item"><%= "+#{blog.tag_list.size - 1}" %></li>
                     <% end %>
                   </ul>
                 </div>
