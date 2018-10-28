@@ -8,35 +8,14 @@
     </div>
 
     <div class="col-md-8">
+      <% if @pined_blog.present? %>
+        <p><i class="fas fa-map-pin"></i> ピン留めされた投稿</p>
+        <div class="pined mb-5">
+          <%= render 'blog', blog: @pined_blog %>
+        </div>
+      <% end %>
       <% @blogs.each do |blog| %>
-        <%= link_to blog, class: 'not-underline' do %>
-          <article class="media">
-            <div class="media-image-area">
-              <%= image_tag 'all/small-no-image.png', class: 'media-image-thumb' %>
-            </div>
-            <div class="media-body">
-              <div class="media-info">
-                <%= blog.is_publish? ? "#{blog.published_on.strftime('%Y年%m月%d日')}に投稿" : '未公開の記事' %>
-              </div>
-              <div class="media-title">
-                <%= blog.title %>
-              </div>
-                <div class="media-tags">
-                  <ul class="tag-list clearfix d-none d-md-block">
-                    <% blog.tag_list.each do |tag| %>
-                      <li class="tag-list-item"><%= tag %></li>
-                    <% end %>
-                  </ul>
-                  <ul class="tag-list clearfix d-block d-md-none">
-                    <li class="tag-list-item"><%= blog.tag_list.first %></li>
-                    <% if blog.tag_list.size > 1 %>
-                      <li class="tag-list-item"><%= "+#{blog.tag_list.size - 1}" %></li>
-                    <% end %>
-                  </ul>
-                </div>
-            </div>
-          </article>
-        <% end %>
+        <%= render 'blog', blog: blog %>
       <% end %>
     </div>
   </div>

@@ -7,10 +7,12 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
+    blogs = Blog.where.not(is_pin: true)
+    @pined_blog = Blog.find_by(is_pin: true)
     if current_user.try(:admin?)
-      @blogs = Blog.all.order(published_on: :desc)
+      @blogs = blogs.order(published_on: :desc)
     else
-      @blogs = Blog.where(is_publish: true).order(published_on: :desc)
+      @blogs = blogs.where(is_publish: true).order(published_on: :desc)
     end
   end
 
@@ -60,6 +62,11 @@ class BlogsController < ApplicationController
   end
 
   private
+    def set_pin
+      return if params[:blog][:is_pin] == '0'
+      Blog.update_all(is_pin: false)
+    end
+
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
@@ -67,6 +74,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :content, :public, :published_on, :tag_list)
+      params.require(:blog).permit(:title, :content, :public, :published_on, :tag_list, :is_pin)
     end
 end
