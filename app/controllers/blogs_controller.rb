@@ -20,6 +20,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    console
   end
 
   # GET /blogs/new
@@ -68,15 +69,15 @@ class BlogsController < ApplicationController
       Blog.update_all(is_pin: false)
     end
 
-    def reject_not_admin
-      unless current_user.try(:admin?)
-        redirect_to blogs_path, alert: 'この記事は管理者以外のユーザーには閲覧が制限されています'
-      end
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
+    end
+
+    def reject_not_admin
+      if !current_user.try(:admin?) && !@blog.published_on
+        redirect_to blogs_path, alert: 'この記事は管理者以外のユーザーには閲覧が制限されています'
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
