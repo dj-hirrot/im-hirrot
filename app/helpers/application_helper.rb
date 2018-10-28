@@ -40,7 +40,7 @@ module ApplicationHelper
       },
       twitter: {
         site: ENV["TW_ID"],
-        card: 'summary',
+        card: 'summary_large_image',
       }
     }
 
