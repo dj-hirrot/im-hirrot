@@ -37,7 +37,7 @@
           <li class="active select"><a href="">Langage</a></li>
           <li><a href="">ADE</a></li>
           <li><a href="">Tool</a></li>
-          <li><a href="">Communication</a></li>
+          <li><a href="">FW</a></li>
         </ul>
       </div>
     </div>
@@ -70,11 +70,11 @@
         <% end %>
       </li>
       <li class="hide">
-        <% @communications.each do |communication| %>
-          <div class="skillbar clearfix" data-percent="<%= communication.level %>%">
-            <div class="skillbar-title" style="background: #333;"><span><%= communication.name %></span></div>
+        <% @frame_works.each do |frame_work| %>
+          <div class="skillbar clearfix" data-percent="<%= frame_work.level %>%">
+            <div class="skillbar-title" style="background: #333;"><span><%= frame_work.name %></span></div>
             <div class="skillbar-bar" style="background: #555;"></div>
-            <div class="skill-bar-percent"><%= communication.level %>%</div>
+            <div class="skill-bar-percent"><%= frame_work.level %>%</div>
           </div>
         <% end %>
       </li>
