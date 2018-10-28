@@ -30,6 +30,9 @@ gem 'rouge'
 # tags
 gem 'acts-as-taggable-on'
 
+# SEO
+gem 'meta-tags'
+
 group :development, :test do
   gem 'mysql2', '>= 0.4.4', '< 0.6.0'
   gem 'pry-rails'
