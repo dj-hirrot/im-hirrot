@@ -2,11 +2,11 @@
   <fieldset>
     <legend class="legend">ログイン</legend>
     <div class="input">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレス' %>
       <span><i class="far fa-envelope"></i></span>
     </div>
     <div class="input">
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: 'パスワード' %>
       <span><i class="fa fa-lock"></i></span>
     </div>
 

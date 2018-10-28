@@ -2,15 +2,15 @@
   <fieldset>
     <legend class="legend">新規登録</legend>
     <div class="input">
-      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: 'メールアドレスを入力してください' %>
       <span><i class="far fa-envelope"></i></span>
     </div>
     <div class="input">
-      <%= f.password_field :password, autocomplete: "off" %>
+      <%= f.password_field :password, autocomplete: "off", placeholder: 'パスワードを入力してください' %>
       <span><i class="fa fa-lock"></i></span>
     </div>
     <div class="input">
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
+    <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: '確認のためパスワードをもう一度入力してください' %>
       <span><i class="far fa-check-circle"></i></span>
     </div>
 
