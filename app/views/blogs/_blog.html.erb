@@ -7,7 +7,10 @@
       <div class="media-info">
         <%= blog.is_publish? ? "#{blog.published_on.strftime('%Y年%m月%d日')}に投稿" : '未公開の記事' %>
       </div>
-      <div class="media-title">
+      <div class="media-title d-block d-md-none">
+        <%= blog.title.truncate(12) %>
+      </div>
+      <div class="media-title d-none d-md-block">
         <%= blog.title %>
       </div>
         <div class="media-tags">
