@@ -3,6 +3,7 @@ class BlogsController < ApplicationController
   before_action :user_confirmed?, except: [:index, :show]
   before_action :is_admin?, except: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
+  before_action :reject_not_admin, only: [:show]
 
   # GET /blogs
   # GET /blogs.json
@@ -65,6 +66,12 @@ class BlogsController < ApplicationController
     def set_pin
       return if params[:blog][:is_pin] == '0'
       Blog.update_all(is_pin: false)
+    end
+
+    def reject_not_admin
+      unless current_user.try(:admin?)
+        redirect_to blogs_path, alert: 'この記事は管理者以外のユーザーには閲覧が制限されています'
+      end
     end
 
     # Use callbacks to share common setup or constraints between actions.
