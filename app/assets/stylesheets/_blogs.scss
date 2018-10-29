@@ -1,8 +1,3 @@
-.pined
-{
-  background-color: #eee;
-}
-
 @media all and (max-width: 480px) {
   .blog-wrapper
   {
@@ -99,4 +94,16 @@ blockquote
   padding: 1em;
   padding-right: 0;
   margin: 1.5em 0;
+}
+
+.pined article
+{
+  background-color: #eee;
+  transition: 0.3s;
+}
+
+.pined article:hover
+{
+  color: #111;
+  background-color: #ddd;
 }
