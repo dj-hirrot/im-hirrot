@@ -26,7 +26,7 @@
         </td>
         <td><span class="badge badge-light"><%= user.role.auth %></span></td>
         <td><span class="badge badge-secondary"><%= user.role.is_confirm? ? '承認済' : '未承認' %></span></td>
-        <td><span class="badge badge-secondary"><%= user.current_sign_in_at.strftime('%y年%m月%d日 %H:%M') %></span></td>
+        <td><span class="badge badge-secondary"><%= user.try(:current_sign_in_at).try(:strftime, '%y年%m月%d日 %H:%M') %></span></td>
         <td>
           <% if user.confirmed_at.nil? %>
             <span class="badge badge-warning">未確認</span>
