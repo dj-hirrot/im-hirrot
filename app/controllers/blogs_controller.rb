@@ -8,13 +8,8 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    blogs = Blog.where.not(is_pin: true)
     @pined_blog = Blog.find_by(is_pin: true)
-    if current_user.try(:admin?)
-      @blogs = blogs.order(published_on: :desc)
-    else
-      @blogs = blogs.where(is_publish: true).order(published_on: :desc)
-    end
+    @blogs = Blog.where.not(is_pin: true).order(published_on: :desc)
   end
 
   # GET /blogs/1
