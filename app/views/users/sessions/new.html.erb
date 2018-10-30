@@ -8,6 +8,7 @@
     <div class="input">
       <%= f.password_field :password, autocomplete: "off", placeholder: 'パスワード' %>
       <span><i class="fa fa-lock"></i></span>
+      <small>パスワードは登録時に暗号化しているため管理者含めあなた以外の誰も参照することができなくなるのでご安心ください。</small>
     </div>
 
     <% if devise_mapping.rememberable? -%>
