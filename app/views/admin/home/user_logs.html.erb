@@ -12,7 +12,7 @@
       <tr>
         <td><%= log.id %></td>
         <td><%= log.landing_on %></td>
-        <td><%= log.landing_at %></td>
+        <td><%= log.landing_at.try(:strftime, '%y年%m月%d日 %H:%M') %></td>
       </tr>
     <% end %>
   </table>

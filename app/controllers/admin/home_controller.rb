@@ -11,7 +11,7 @@ class Admin::HomeController < Admin::ApplicationController
 
   def user_logs
     user = User.find(params[:id])
-    @logs = user.track_viewers
+    @logs = user.track_viewers.order(landing_at: :desc)
   end
 
   def user_accept
