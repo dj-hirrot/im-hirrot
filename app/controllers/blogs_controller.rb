@@ -15,6 +15,7 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    @blog.update(viewer: @blog.viewer+=1) if !current_user.try(:admin?)
   end
 
   # GET /blogs/new

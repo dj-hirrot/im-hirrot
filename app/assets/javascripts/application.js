@@ -2,6 +2,7 @@
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets
+//= require social-share-button
 //= require activestorage
 //= require turbolinks
 //= require_tree .
