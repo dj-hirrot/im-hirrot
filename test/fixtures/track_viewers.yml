@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user_id: 1
+  landing_on: MyString
+  landing_at: 2018-10-30 18:36:42
+
+two:
+  user_id: 1
+  landing_on: MyString
+  landing_at: 2018-10-30 18:36:42
