@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @pined_blog = Blog.find_by(is_pin: true)
-    @blogs = Blog.where.not(is_pin: true).order(published_on: :desc)
+    @blogs = Blog.where.not(is_pin: true).order(created_at: :desc)
   end
 
   # GET /blogs/1
