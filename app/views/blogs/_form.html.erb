@@ -25,7 +25,7 @@
       </div>
 
       <div class="form-check">
-        <%= form.check_box :is_pin, class: 'form-check-input' %>
+        <%= form.check_box :is_pin, class: 'form-check-input', checked: blog.is_pin? %>
         <%= form.label :is_pin, "ピン留", class: 'form-check-label ml-3' %>
       </div>
 
