@@ -21,7 +21,7 @@
       <tr>
         <td><%= user.id %></td>
         <td>
-          <%= user.email %>
+          <%= link_to_if user.track_viewers.any?, user.email, admin_user_logs_path(id: user.id) %>
           <%= link_to '削除する', user_registration_path(id: user.id), class: 'btn btn-danger', method: :delete %>
         </td>
         <td><span class="badge badge-light"><%= user.role.auth %></span></td>

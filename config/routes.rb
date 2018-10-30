@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   namespace :admin do
     root "home#top"
     get "users" => "home#users"
+    get "user_logs/:id/" => "home#user_logs", as: 'user_logs'
     patch "/:id/user_accept" => "home#user_accept", as: 'user_accept'
     get "blogs" => "home#blogs"
     patch "/:id/blog_publish" => "home#blog_publish", as: 'blog_publish'

@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
 
   def create_track_viewer
     if current_user.present? && !current_user.admin?
-      log = current_user.track_viewers.build(landing_on: request.fullpath, landing_on: Time.zone.now)
+      log = current_user.track_viewers.build(landing_on: request.fullpath, landing_at: Time.zone.now)
       log.save
     end
   end

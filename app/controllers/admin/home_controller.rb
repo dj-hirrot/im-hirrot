@@ -9,6 +9,11 @@ class Admin::HomeController < Admin::ApplicationController
     @users = @users.order(created_at: :desc)
   end
 
+  def user_logs
+    user = User.find(params[:id])
+    @logs = user.track_viewers
+  end
+
   def user_accept
     user = User.find(params[:id])
     role = user.role
