@@ -145,6 +145,7 @@ nav
 
       &:before
       {
+        background-color: lighten(#fff, 30%);
         transition-duration: 0.5s;
         top: 0;
         transform: rotate(45deg);
@@ -153,6 +154,7 @@ nav
 
       &:after
       {
+        background-color: lighten(#fff, 30%);
         transition-duration: 0.5s;
         top: 0;
         transform: rotate(-45deg);
