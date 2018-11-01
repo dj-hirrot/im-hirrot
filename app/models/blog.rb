@@ -3,7 +3,7 @@ class Blog < ApplicationRecord
   acts_as_taggable
 
   def set_pin_flag
-    return if is_pin == false
+    return if !is_pin || is_pin.nil?
     Blog.update_all(is_pin: false)
   end
 end
