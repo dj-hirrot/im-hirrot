@@ -1,0 +1,65 @@
+#social-share-button-wrapper
+{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+@media all and (min-width: 768px)
+{
+  .social-share-button
+  {
+    width: 825px;
+    margin: 0 auto;
+  }
+
+  .social-share-button a
+  {
+    display: inline-block !important;
+    background-size: cover !important;
+    width: 50px !important;
+    height: 50px !important;
+    margin: 15px 0;
+    margin-left: 146.25px;
+  }
+}
+
+@media all and (min-width: 480px) and (max-width: 768px)
+{
+  .social-share-button
+  {
+    width: 650px;
+    margin: 0 auto;
+  }
+
+  .social-share-button a
+  {
+    display: inline-block !important;
+    background-size: cover !important;
+    width: 48px !important;
+    height: 48px !important;
+    margin: 15px 0;
+    margin-left: 126.5px;
+  }
+}
+
+@media all and (max-width: 480px)
+{
+  .social-share-button
+  {
+    width: 250px;
+    margin: 0 auto;
+  }
+
+  .social-share-button a
+  {
+    display: inline-block !important;
+    background-size: cover !important;
+    width: 40px !important;
+    height: 40px !important;
+    margin: 5px 0;
+    margin-left: 32.5px;
+  }
+}

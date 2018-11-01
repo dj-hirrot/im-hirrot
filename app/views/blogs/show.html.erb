@@ -34,7 +34,7 @@
       <% @blog.tag_list.each do |tag| %>
         <span class="badge badge-dark"><%= tag %></span>
       <% end %>
-      <div class="my-5">
+      <div id="social-share-button-wrapper">
         <%= social_share_button_tag(@blog.title) %>
       </div>
       <div class="area-break mb-5">
