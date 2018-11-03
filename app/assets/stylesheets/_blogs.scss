@@ -154,3 +154,38 @@ ul.news-wrapper > li
     word-break: break-all;
   }
 }
+
+.blog-content
+{
+  position: relative;
+}
+
+.blogs-back-btn
+{
+  position: fixed;
+  right: auto;
+  @media all and (max-width: 480px) {
+    font-size: 32px;
+    bottom: 80px;
+  }
+  @media all and (min-width: 480px) {
+    font-size: 48px;
+    bottom: 110px;
+  }
+  & i
+  {
+    @media all and (max-width: 480px) {
+      width: 65px;
+      height: 65px;
+      line-height: 65px;
+    }
+    @media all and (min-width: 480px) {
+      width: 95px;
+      height: 95px;
+      line-height: 95px;
+    }
+    color: #fff;
+    background-color: rgba(0, 0, 0, .8);
+    border-radius: 50%;
+  }
+}
