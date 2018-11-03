@@ -112,3 +112,44 @@ blockquote
   color: #111;
   background-color: #ddd;
 }
+
+.news-area
+{
+  width: 100%;
+  border: 1px solid #000;
+  box-sizing: border-box;
+}
+
+.news-heading
+{
+  color: #eee;
+  background: #121212;
+  font-size: 18px;
+  margin: 0;
+  padding: 15px 10px;
+}
+
+ul.news-wrapper
+{
+  margin-bottom: 0;
+  height: 200px;
+  list-style: none;
+  padding: 0;
+  overflow: scroll;
+}
+
+ul.news-wrapper > li
+{
+  margin: 0;
+  padding: 15px 0;
+  transition: .8s;
+  border-bottom: 1px solid #ccc;
+  &:hover
+  {
+    background-color: #eee;
+  }
+  & .news-content
+  {
+    padding: 0 15px;
+  }
+}

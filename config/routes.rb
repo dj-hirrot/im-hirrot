@@ -4,6 +4,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
   resources :blogs
+  post "/topic" => "topics#create", as: "topic"
+  delete "/topic/:id" => "topics#destroy", as: "topics"
   resources :experiences
   root 'page#top'
 

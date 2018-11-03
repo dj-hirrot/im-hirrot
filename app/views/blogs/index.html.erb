@@ -5,6 +5,34 @@
       <% if current_user.try(:admin?) %>
         <%= link_to 'New Blog', new_blog_path, class: 'btn btn-dark btn-lg' %>
       <% end %>
+      <div class="news-area my-4">
+        <h2 class="news-heading">新着情報</h2>
+        <ul class="news-wrapper area-break">
+          <% @topics.each do |topic| %>
+            <li>
+              <div class="text-right pr-3">
+                <% if current_user.try(:admin?) %>
+                  <%= link_to '削除する', topics_path(topic), class: 'badge badge-danger', method: :delete, data: { confirm: '本当に削除しますか？' } %>
+                <% end %>
+                <%= topic.created_at.strftime("%y%m%d %H:%M") %>
+              </div>
+              <div class="news-content">
+                <%= topic.title %>
+              </div>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+
+      <% if current_user.try(:admin?) %>
+        <%= form_with model: Topic.new, url: topic_path do |form| %>
+          <div class="form-group">
+            <%= form.label '新着情報を追加' %>
+            <%= form.text_field :title, class: 'form-control' %>
+          </div>
+          <%= form.submit '追加する', class: 'btn btn-dark' %>
+        <% end %>
+      <% end %>
     </div>
 
     <div class="col-md-8">
