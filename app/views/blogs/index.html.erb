@@ -17,7 +17,7 @@
                 <%= topic.created_at.strftime("%y年%m月%d日 %H:%M") %>
               </div>
               <div class="news-content">
-                <% if (topic.created_at.to_date) >= (Date.today - 3) %>
+                <% if (topic.created_at.to_date) >= (Date.today - 1) %>
                   <span class="text-white badge badge-warning">new!</span>
                 <% end %>
                 <%= topic.title %>
