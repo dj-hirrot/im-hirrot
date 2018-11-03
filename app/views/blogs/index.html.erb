@@ -14,7 +14,7 @@
                 <% if current_user.try(:admin?) %>
                   <%= link_to '削除する', topics_path(topic), class: 'badge badge-danger', method: :delete, data: { confirm: '本当に削除しますか？' } %>
                 <% end %>
-                <%= topic.created_at.strftime("%y%m%d %H:%M") %>
+                <%= topic.created_at.strftime("%y年%m月%d日 %H:%M") %>
               </div>
               <div class="news-content">
                 <%= topic.title %>
