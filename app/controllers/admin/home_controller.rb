@@ -46,6 +46,7 @@ class Admin::HomeController < Admin::ApplicationController
       notice_txt = '非公開'
     end
     if blog.save
+      Topic.create(title: "#{blog.title}を公開しました。")
       redirect_to admin_blogs_path, notice: "#{blog.title}を#{notice_txt}にしました"
     else
       redirect_to admin_blogs_path, notice: "#{blog.title}を#{notice_txt}にできませんでした"
