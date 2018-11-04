@@ -8,4 +8,9 @@ class InfoMailer < ApplicationMailer
     @user = params[:user]
     mail(to: @user.email, subject: '管理者から承認されました')
   end
+
+  def blog_unpined
+    @user = User.joins(:role).where(roles: { auth: 'admin' }).first
+    mail(to: @user.email, subject: 'ピンが外されました')
+  end
 end

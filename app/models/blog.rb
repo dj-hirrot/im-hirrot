@@ -4,6 +4,7 @@ class Blog < ApplicationRecord
 
   def set_pin_flag
     return if !is_pin || is_pin.nil?
+    InfoMailer.blog_unpined.deliver_now
     Blog.update_all(is_pin: false)
   end
 end
