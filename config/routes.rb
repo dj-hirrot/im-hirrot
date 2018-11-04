@@ -3,7 +3,10 @@ Rails.application.routes.draw do
     sessions: 'users/sessions',
     registrations: 'users/registrations'
   }
-  resources :blogs
+  resources :blogs do
+    post "/comment" => "comments#create", as: "comment"
+    delete "/comment/:comment_id" => "comments#destroy", as: "comments"
+  end
   post "/topic" => "topics#create", as: "topic"
   delete "/topic/:id" => "topics#destroy", as: "topics"
   resources :experiences
