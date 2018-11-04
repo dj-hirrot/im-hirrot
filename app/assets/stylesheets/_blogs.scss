@@ -163,7 +163,8 @@ ul.news-wrapper > li
 .blogs-back-btn
 {
   position: fixed;
-  right: auto;
+  left: 0;
+  right: 0;
   @media all and (max-width: 480px) {
     font-size: 32px;
     bottom: 80px;
