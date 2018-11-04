@@ -132,10 +132,15 @@ blockquote
 ul.news-wrapper
 {
   margin-bottom: 0;
-  height: 200px;
   list-style: none;
   padding: 0;
   overflow: scroll;
+  @media all and (min-width: 480px) {
+    height: 400px;
+  }
+  @media all and (max-width: 480px) {
+    height: 200px;
+  }
 }
 
 ul.news-wrapper > li
