@@ -155,16 +155,22 @@ ul.news-wrapper > li
   }
 }
 
-.blog-content
+.blogs-back-content
 {
   position: relative;
+}
+
+.blogs-back-area
+{
+  position: absolute;
+  right: 100px;
+  bottom: 30px;
 }
 
 .blogs-back-btn
 {
   position: fixed;
-  left: 0;
-  right: 0;
+  left: auto;
   @media all and (max-width: 480px) {
     font-size: 32px;
     bottom: 80px;
