@@ -36,6 +36,7 @@ class BlogsController < ApplicationController
     if params[:preview] || !@blog.save
       render :new
     else
+      @blog.set_pin_flag if params[:blog][:is_pin] == '1'
       redirect_to @blog, notice: '記事の作成に成功しました'
     end
   end
@@ -48,6 +49,7 @@ class BlogsController < ApplicationController
     if params[:preview] || !@blog.update(blog_params)
       render :edit
     else
+      @blog.set_pin_flag if params[:blog][:is_pin] == '1'
       redirect_to @blog, notice: 'ブログの更新に成功しました'
     end
   end
@@ -60,11 +62,6 @@ class BlogsController < ApplicationController
   end
 
   private
-    def set_pin
-      return if params[:blog][:is_pin] == '0'
-      Blog.update_all(is_pin: false)
-    end
-
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
