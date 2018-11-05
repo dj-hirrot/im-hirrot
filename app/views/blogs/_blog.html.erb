@@ -5,7 +5,17 @@
     </div>
     <div class="media-body">
       <div class="media-info">
-        <%= blog.is_publish? ? "#{blog.published_on.strftime('%Y年%m月%d日')}に投稿" : '非公開の記事' %>
+        <% if blog.is_publish %>
+          <% case blog.public_scope %>
+          <% when 0 %>
+            <span class="badge badge-success">全体に公開中</span>
+          <% when 1 %>
+            <span class="text-white badge badge-warning">登録済みユーザにのみ公開中</span>
+          <% end %>
+          <%= blog.published_on.strftime('%Y年%m月%d日') %>に投稿
+        <% else %>
+          <span class="badge badge-danger">非公開</span>
+        <% end %>
       </div>
       <div class="media-title d-block d-md-none">
         <%= blog.title.truncate(12) %>

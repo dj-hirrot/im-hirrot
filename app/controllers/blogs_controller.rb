@@ -16,6 +16,10 @@ class BlogsController < ApplicationController
   # GET /blogs/1
   # GET /blogs/1.json
   def show
+    if current_user.nil? && @blog.public_scope == 1
+      redirect_to blogs_path, alert: '登録済みのユーザのみ閲覧可能です 登録かログインをしてください'
+    end
+
     @blog.update(viewer: @blog.viewer+=1) if !current_user.try(:admin?)
   end
 
@@ -75,6 +79,6 @@ class BlogsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def blog_params
-      params.require(:blog).permit(:title, :content, :public, :published_on, :tag_list, :is_pin)
+      params.require(:blog).permit(:title, :content, :public_scope, :public, :published_on, :tag_list, :is_pin)
     end
 end
