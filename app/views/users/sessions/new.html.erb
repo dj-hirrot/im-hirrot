@@ -8,21 +8,17 @@
     <div class="input">
       <%= f.password_field :password, autocomplete: "off", placeholder: 'パスワード' %>
       <span><i class="fa fa-lock"></i></span>
-      <small>パスワードは登録時に暗号化しているため管理者含めあなた以外の誰も参照することができなくなるのでご安心ください。</small>
+      <small><%= link_to 'Blog', blogs_path, class: 'plain-links' %>閲覧は会員登録・ログイン不要です！(一部閲覧制限あり)</small>
     </div>
 
-    <% if devise_mapping.rememberable? -%>
-      <div class="row">
-        <div class="col-md-8 mx-auto">
-          <label class="checkbox">
+    <div class="row mb-5">
+      <div class="col-10 mx-auto">
+        <% if devise_mapping.rememberable? -%>
+          <label class="checkbox d-block">
             <%= f.check_box :remember_me %>
             次回から自動ログイン
           </label>
-        </div>
-      </div>
-    <% end -%>
-    <div class="row mb-5">
-      <div class="col-md-8 mx-auto">
+        <% end -%>
         <%= link_to '会員登録がお済みでない方はこちら', new_user_registration_path, class: 'btn btn-dark btn-lg' %>
       </div>
     </div>
