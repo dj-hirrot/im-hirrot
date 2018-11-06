@@ -1,71 +1,10 @@
-<style media="screen">
-*
-{
-  box-sizing: border-box;
-}
-
-.profile-heading
-{
-  position: relative;
-  text-align: center;
-}
-
-.profile-heading::before
-{
-  border-top: 1px solid;
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 0;
-  width: 100%;
-}
-
-.profile-heading span
-{
-  background-color: #fff;
-  display: inline-block;
-  padding: 0 0.5em;
-  position: relative;
-}
-
-a, a:hover
-{
-  text-decoration: none;
-}
-
-.btn
-{
-  display: inline-block;
-  font-weight: 400;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  border: 1px solid transparent;
-  padding: .375rem .75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  border-radius: .25rem;
-  transition: color .15s
-}
-
-.btn-dark
-{
-  color: #fff;
-  background-color: #343a40;
-  border-color: #343a40;
-}
-</style>
-<h1 class="profile-heading"><span><%= @email %>様</span></h1>
-<div class="row">
-  <h2>ご登録いただきありがとうございます！</h2>
-  <p>
+<h1 style="font-size: 16px; border-bottom: 1px solid #eee;"><span><%= @email %>様</span></h1>
+<div style="padding: 15px 30px;">
+  <h2 style="font-size: 14px;">ご登録いただきありがとうございます！</h2>
+  <p style="font-size: 10px;">
     Hiroto Shibutani (Web enginieer) のポートフォリオページにご登録いただきまして誠にありがとうございます。<br />
     当サイトでは開発者渋谷宥仁のエンジニアブログや経歴が参照でき得るものとなっております。<br />
     管理者が登録者様の情報を確認した後１〜３日以内に閲覧許可を承認しますので少々お待ちください。
   </p>
-  <%= link_to '登録を確認する', confirmation_url(@resource, confirmation_token: @token), class: 'btn btn-dark' %>
+  <%= link_to '登録を確認する', confirmation_url(@resource, confirmation_token: @token), style: 'font-size: 12px; border-radius: 3px; padding: 10px 14px; color: #fff; background-color: #343a40; text-decoration: none;' %>
 </div>
