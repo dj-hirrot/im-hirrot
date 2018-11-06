@@ -8,6 +8,7 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
+      InfoMailer.with(blog: @blog, comment: @comment).recive_blog_comment.deliver_now
       redirect_to @blog, notice: 'コメントを追加しました'
     else
       redirect_to @blog, alert: 'コメントの追加に失敗しました'

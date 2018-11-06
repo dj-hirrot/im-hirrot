@@ -1,0 +1,17 @@
+<h1 style="font-size: 16px; border-bottom: 1px solid #eee;"><span>管理者様</span></h1>
+<div style="padding: 15px 30px;">
+  <h2 style="font-size: 14px;"><%= @blog.title %>にコメントがつきました。</h2>
+  <p>
+    <span style="font-size: 10px; color: #fff; background-color: #343a40; display: inline-block; padding: 3px 8px; margin: 3px; border-radius: 5px;">
+      ユーザ名
+    </span>:<%= @comment.user.email %><br>
+    <span style="font-size: 10px; color: #fff; background-color: #343a40; display: inline-block; padding: 3px 8px; margin: 3px; border-radius: 5px;">
+      AS
+    </span>: <%= @comment.author %><br>
+    <span style="font-size: 10px; color: #fff; background-color: #343a40; display: inline-block; padding: 3px 8px; margin: 3px; border-radius: 5px;">
+      内容
+    </span>:<br>
+    <%= @comment.content %>
+  </p>
+  <%= link_to @blog.title, blog_url(@blog), style: "font-size: 12px; border-radius: 3px; padding: 10px 14px; color: #fff; background-color: #343a40; text-decoration: none;" %>
+</div>

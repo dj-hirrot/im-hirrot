@@ -10,7 +10,12 @@ class InfoMailer < ApplicationMailer
   end
 
   def blog_unpined
-    @user = User.joins(:role).where(roles: { auth: 'admin' }).first
-    mail(to: @user.email, subject: 'ピンが外されました')
+    mail(to: ENV["EMAIL_ADDRESS"], subject: 'ピンが外されました')
+  end
+
+  def recive_blog_comment
+    @blog = params[:blog]
+    @comment = params[:comment]
+    mail(to: ENV["EMAIL_ADDRESS"], subject: 'コメントがつきました')
   end
 end
