@@ -45,9 +45,11 @@
           <%= render 'blog', blog: @pined_blog %>
         </div>
       <% end %>
+      <%= paginate @blogs %>
       <% @blogs.each do |blog| %>
         <%= render 'blog', blog: blog %>
       <% end %>
+      <%= paginate @blogs %>
     </div>
   </div>
 </div>

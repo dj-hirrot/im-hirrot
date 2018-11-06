@@ -1,0 +1,18 @@
+nav#pagination-nav
+{
+  margin: 15px 0 !important;
+  & ul.pagination li.page-item
+  {
+    & span, & a
+    {
+      color: #343a40 !important;
+      box-sizing: border-box;
+      border-color: #343a40;
+    }
+    &.active span
+    {
+      color: #fff !important;
+      background-color: #343a40 !important;
+    }
+  }
+}

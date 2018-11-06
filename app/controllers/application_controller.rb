@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   before_action :authenticate_user!
   before_action :create_track_viewer
+  PER = 5
 
   def is_admin?
     if current_user.nil? || !current_user.admin?

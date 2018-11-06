@@ -4,12 +4,13 @@ class BlogsController < ApplicationController
   before_action :is_admin?, except: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   before_action :reject_not_admin, only: [:show]
+  before_action :unpined, only: [:create, :update]
 
   # GET /blogs
   # GET /blogs.json
   def index
     @pined_blog = Blog.find_by(is_pin: true)
-    @blogs = Blog.where.not(is_pin: true).order(published_on: :desc)
+    @blogs = Blog.not_pined.order(published_on: :desc).page(params[:page]).per(PER)
     @topics = Topic.all.order(created_at: :desc)
   end
 
@@ -40,7 +41,6 @@ class BlogsController < ApplicationController
     if params[:preview] || !@blog.save
       render :new
     else
-      @blog.set_pin_flag if params[:blog][:is_pin] == '1'
       redirect_to @blog, notice: '記事の作成に成功しました'
     end
   end
@@ -53,7 +53,6 @@ class BlogsController < ApplicationController
     if params[:preview] || !@blog.update(blog_params)
       render :edit
     else
-      @blog.set_pin_flag if params[:blog][:is_pin] == '1'
       redirect_to @blog, notice: 'ブログの更新に成功しました'
     end
   end
@@ -69,6 +68,10 @@ class BlogsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_blog
       @blog = Blog.find(params[:id])
+    end
+
+    def unpined
+      Blog.update_all(is_pin: false)
     end
 
     def reject_not_admin
