@@ -71,7 +71,7 @@ class BlogsController < ApplicationController
     end
 
     def unpined
-      Blog.update_all(is_pin: false)
+      Blog.update_all(is_pin: false) unless blog_params[:is_pin] == '0' || @blog.is_pin?
     end
 
     def reject_not_admin
