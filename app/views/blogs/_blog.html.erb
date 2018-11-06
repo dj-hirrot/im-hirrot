@@ -10,7 +10,7 @@
           <% when 0 %>
             <span class="badge badge-success">全体に公開中</span>
           <% when 1 %>
-            <span class="text-white badge badge-warning">登録済みユーザにのみ公開中</span>
+            <span class="text-white badge badge-warning">登録済ユーザ限定</span>
           <% end %>
           <%= blog.published_on.strftime('%Y年%m月%d日') %>に投稿
         <% else %>
