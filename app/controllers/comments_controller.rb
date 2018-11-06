@@ -5,6 +5,7 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @blog.comments.build(comment_params)
+    @comment.user_id = current_user.id
 
     if @comment.save
       redirect_to @blog, notice: 'コメントを追加しました'
@@ -15,7 +16,7 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment.destroy
-    redirect_to blogs_url, notice: 'コメントを削除しました'
+    redirect_to blog_path(@blog), notice: 'コメントを削除しました'
   end
 
   private
