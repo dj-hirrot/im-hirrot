@@ -1,41 +1,53 @@
-<%= link_to blog, class: 'not-underline' do %>
-  <article class="media">
-    <div class="media-image-area">
-      <%= image_tag 'all/small-no-image.png', class: 'media-image-thumb' %>
-    </div>
-    <div class="media-body">
-      <div class="media-info">
-        <% if blog.is_publish %>
-          <% case blog.public_scope %>
-          <% when 0 %>
-            <span class="badge badge-success">全体に公開中</span>
-          <% when 1 %>
-            <span class="text-white badge badge-warning">登録済ユーザ限定</span>
+<div class="col-10" style="padding: 0px;">
+  <%= link_to blog, class: 'not-underline' do %>
+    <article class="media">
+      <div class="media-image-area">
+        <%= image_tag 'all/small-no-image.png', class: 'media-image-thumb' %>
+      </div>
+      <div class="media-body">
+        <div class="media-info">
+          <% if blog.is_publish %>
+            <% case blog.public_scope %>
+            <% when 0 %>
+              <span class="badge badge-success">全体に公開中</span>
+            <% when 1 %>
+              <span class="text-white badge badge-warning">登録済ユーザ限定</span>
+            <% end %>
+            <%= blog.published_on.strftime('%Y年%m月%d日') %>に投稿
+          <% else %>
+            <span class="badge badge-danger">非公開</span>
           <% end %>
-          <%= blog.published_on.strftime('%Y年%m月%d日') %>に投稿
-        <% else %>
-          <span class="badge badge-danger">非公開</span>
-        <% end %>
-      </div>
-      <div class="media-title d-block d-md-none">
-        <%= blog.title.truncate(12) %>
-      </div>
-      <div class="media-title d-none d-md-block">
-        <%= blog.title %>
-      </div>
-        <div class="media-tags">
-          <ul class="tag-list clearfix d-none d-md-block">
-            <% blog.tag_list.each do |tag| %>
-              <li class="tag-list-item"><%= tag %></li>
-            <% end %>
-          </ul>
-          <ul class="tag-list clearfix d-block d-md-none">
-            <li class="tag-list-item"><%= blog.tag_list.first %></li>
-            <% if blog.tag_list.size > 1 %>
-              <li class="tag-list-item"><%= "+#{blog.tag_list.size - 1}" %></li>
-            <% end %>
-          </ul>
         </div>
-    </div>
-  </article>
-<% end %>
+        <div class="media-title d-block d-md-none">
+          <%= blog.title.truncate(12) %>
+        </div>
+        <div class="media-title d-none d-md-block">
+          <%= blog.title %>
+        </div>
+          <div class="media-tags">
+            <ul class="tag-list clearfix d-none d-md-block">
+              <% blog.tag_list.each do |tag| %>
+                <li class="tag-list-item"><%= tag %></li>
+              <% end %>
+            </ul>
+            <ul class="tag-list clearfix d-block d-md-none">
+              <li class="tag-list-item"><%= blog.tag_list.first %></li>
+              <% if blog.tag_list.size > 1 %>
+                <li class="tag-list-item"><%= "+#{blog.tag_list.size - 1}" %></li>
+              <% end %>
+            </ul>
+          </div>
+      </div>
+    </article>
+  <% end %>
+</div>
+<div class="col-2 favorite-btn-area">
+  <%# if current_user.present? && current_user.favorites.find_by(blog_id: blog.id).present? %>
+    <!-- <i class="fas fa-star favorite-btn"></i> -->
+  <%# else %>
+    <!-- <i class="far fa-star favorite-btn"></i> -->
+  <%# end %>
+  <div id="blog-<%= blog.id %>" data-blog-id="<%= blog.id %>">
+    <%= render "apis/favorites/favorite", blog: blog %>
+  </div>
+</div>

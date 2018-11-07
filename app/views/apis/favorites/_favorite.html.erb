@@ -1,0 +1,27 @@
+<!-- <span class="favorite">
+  <%# if blog.fav?(current_user) %>
+    <%#= form_for(blog.favorites.find_by(user_id: current_user.id), url: apis_favorite_path(blog.favorites.find_by(user_id: current_user.id)), method: :delete, remote: true) do |f| %>
+      <%#= button_tag(class: "btn btn-default") do %>
+        <i class="fas fa-star favorite-btn"></i>
+      <%# end %>
+    <%# end %>
+  <%# else %>
+    <%#= form_for(blog.favorites.build, url: apis_favorites_path, remote: true) do |f| %>
+      <div><%#= hidden_field_tag :blog_id, blog.id %></div>
+      <%#= button_tag(class: "btn btn-default") do %>
+        <i class="far fa-star favorite-btn"></i>
+      <%# end %>
+    <%# end %>
+  <%# end %>
+</span> -->
+<span class="favorite">
+  <% if blog.fav?(current_user) %>
+    <%= link_to apis_favorite_path(blog.favorites.find_by(user_id: current_user.id)), method: :delete, remote: true do %>
+      <i class="fas fa-star favorite-btn"></i>
+    <% end %>
+  <% else %>
+    <%= link_to apis_favorites_path(blog_id: blog.id), method: :post, remote: true do %>
+      <i class="far fa-star favorite-btn"></i>
+    <% end %>
+  <% end %>
+</span>

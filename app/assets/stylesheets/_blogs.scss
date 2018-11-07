@@ -103,7 +103,7 @@ blockquote
   margin: 1.5em 0;
 }
 
-.pined article
+.pined article, .pined .favorite-btn-area
 {
   background-color: #eee;
   transition: 0.3s;
@@ -262,4 +262,19 @@ textarea.comment-form-control
   border-bottom-color: #333;
   border-width: 11px;
   margin-left: -11px;
+}
+
+.favorite-btn-area
+{
+  text-align: center;
+  line-height: 99px;
+  padding: 0px;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+}
+
+.favorite-btn
+{
+  font-size:32px;
+  color: #121212;
 }

@@ -41,13 +41,15 @@
     <div class="col-md-8">
       <% if @pined_blog.present? %>
         <p><i class="fas fa-map-pin"></i> ピン留めされた投稿</p>
-        <div class="pined mb-5">
+        <div class="row pined mb-5">
           <%= render 'blog', blog: @pined_blog %>
         </div>
       <% end %>
       <%= paginate @blogs %>
       <% @blogs.each do |blog| %>
-        <%= render 'blog', blog: blog %>
+        <div class="row">
+          <%= render 'blog', blog: blog %>
+        </div>
       <% end %>
       <%= paginate @blogs %>
     </div>

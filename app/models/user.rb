@@ -4,6 +4,8 @@ class User < ApplicationRecord
   has_one :role, dependent: :destroy
   has_many :track_viewers, dependent: :destroy
   has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable,
          :confirmable, :lockable, :timeoutable
