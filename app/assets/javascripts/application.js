@@ -18,7 +18,11 @@ document.addEventListener('turbolinks:load', function() {
     } else {
       $('#header').removeClass('hide');
     }
-    startPos = winScrollTop;
+    if (winScrollTop > 0) {
+      startPos = winScrollTop;
+    } else {
+      startPos = 0;
+    }
   });
 
   // navigation
