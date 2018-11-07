@@ -12,7 +12,7 @@
     <div class="input">
       <%= f.password_field :password_confirmation, autocomplete: "off", placeholder: '確認のためパスワードをもう一度入力してください' %>
       <span><i class="far fa-check-circle"></i></span>
-      <small><%= link_to 'Blog', blogs_path, class: 'plain-links' %>閲覧は会員登録・ログイン不要です！(一部閲覧制限あり)</small>
+      <p class="mt-3"><%= link_to 'Blog', blogs_path, class: 'plain-links', style: 'font-size: 2.2rem;' %> 閲覧は会員登録・ログイン不要です！(一部閲覧制限あり)</p>
     </div>
 
     <div class="row mb-5">
