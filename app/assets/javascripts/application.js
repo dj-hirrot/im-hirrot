@@ -13,6 +13,8 @@ document.addEventListener('turbolinks:load', function() {
     winScrollTop = $(this).scrollTop();
     if (winScrollTop >= startPos) {
       $('#header').addClass('hide');
+      $("nav#global-nav").removeClass("open");
+      $(".navToggle").removeClass("open");
     } else {
       $('#header').removeClass('hide');
     }
