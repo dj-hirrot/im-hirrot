@@ -7,8 +7,7 @@ nav#global-nav
   position: fixed;
   top: 0;
   left: 0;
-  transition-duration: 0.5s;
-  transition-timing-function: swing;
+  transition: .5s;
   overflow: hidden;
   box-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 

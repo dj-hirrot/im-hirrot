@@ -16,27 +16,29 @@
   </head>
 
   <body>
-    <nav id="global-nav">
-      <div class="navToggle">
-        <div class="icon"></div>
-      </div>
+    <header id="header">
+      <nav id="global-nav">
+        <div class="navToggle">
+          <div class="icon"></div>
+        </div>
 
-      <ul class="clearfix">
-        <li><%= link_to 'TOP', root_path %></li>
-        <li><%= link_to 'EXPERIENCES', experiences_path %></li>
-        <li><%= link_to 'BLOG', blogs_path %></li>
-        <% if user_signed_in? %>
-          <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
-          <li><%= link_to 'ADMIN', admin_root_path if current_user.admin? %></li>
-        <% else %>
-          <li class="auth-menu">
-            <%= link_to 'SIGN UP', new_user_registration_path, class: 'auth-menu-item' %>
-            or
-            <%= link_to 'LOG IN', new_user_session_path, class: 'auth-menu-item' %>
-          </li>
-        <% end %>
-      </ul>
-    </nav>
+        <ul class="clearfix">
+          <li><%= link_to 'TOP', root_path %></li>
+          <li><%= link_to 'EXPERIENCES', experiences_path %></li>
+          <li><%= link_to 'BLOG', blogs_path %></li>
+          <% if user_signed_in? %>
+            <li><%= link_to 'LOG OUT', destroy_user_session_path, method: :delete %></li>
+            <li><%= link_to 'ADMIN', admin_root_path if current_user.admin? %></li>
+          <% else %>
+            <li class="auth-menu">
+              <%= link_to 'SIGN UP', new_user_registration_path, class: 'auth-menu-item' %>
+              or
+              <%= link_to 'LOG IN', new_user_session_path, class: 'auth-menu-item' %>
+            </li>
+          <% end %>
+        </ul>
+      </nav>
+    </header>
     <main style="margin-bottom:60px;">
       <% if notice %><div class="alert alert-success text-center mb-0"><%= notice %></div><% end %>
       <% if alert %><div class="alert alert-warning text-center mb-0"><%= alert %></div><% end %>
