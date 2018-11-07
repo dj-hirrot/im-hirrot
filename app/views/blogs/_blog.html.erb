@@ -1,4 +1,4 @@
-<div class="col-10" style="padding: 0px;">
+<div class="<%= user_signed_in? ? 'col-10' : 'col-12' %>" style="padding: 0px;">
   <%= link_to blog, class: 'not-underline' do %>
     <article class="media">
       <div class="media-image-area">
@@ -41,13 +41,10 @@
     </article>
   <% end %>
 </div>
-<div class="col-2 favorite-btn-area">
-  <%# if current_user.present? && current_user.favorites.find_by(blog_id: blog.id).present? %>
-    <!-- <i class="fas fa-star favorite-btn"></i> -->
-  <%# else %>
-    <!-- <i class="far fa-star favorite-btn"></i> -->
-  <%# end %>
-  <div id="blog-<%= blog.id %>" data-blog-id="<%= blog.id %>">
-    <%= render "apis/favorites/favorite", blog: blog %>
+<% if user_signed_in? %>
+  <div class="col-2 favorite-btn-area">
+    <div id="blog-<%= blog.id %>" data-blog-id="<%= blog.id %>">
+      <%= render "apis/favorites/favorite", blog: blog %>
+    </div>
   </div>
-</div>
+<% end %>
