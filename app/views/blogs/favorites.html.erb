@@ -1,0 +1,30 @@
+<div class="container" style="margin-top: 100px;">
+  <div class="row">
+    <div class="col-md-4 bai-jamjuree">
+      <h1 class="blog-name"><i class="fab fa-blogger"></i> Hirrot's Blog <span class="text-white badge badge-warning">FAVORITES</span></h1>
+      <% if current_user.try(:admin?) %>
+        <%= link_to 'New Blog', new_blog_path, class: 'btn btn-dark btn-lg' %>
+      <% end %>
+    </div>
+
+    <div class="col-md-8">
+      <% if @favorites.empty? %>
+        <div class="jumbotron">
+          <h1>まだお気に入りはありません。</h1>
+          <p class="lead">記事をお気に入りすることで気になった記事のみ表示することができます。</p>
+          <hr class="my-4">
+          <p>ブログ一覧ページに行って早速記事をお気に入りしましょう。</p>
+          <%= link_to 'ブログ一覧', blogs_path, class: 'btn btn-dark btn-lg' %>
+        </div>
+      <% else %>
+        <%= paginate @favorites %>
+        <% @favorites.each do |blog| %>
+          <div class="row">
+            <%= render 'blog', blog: blog %>
+          </div>
+        <% end %>
+        <%= paginate @favorites %>
+      <% end %>
+    </div>
+  </div>
+</div>

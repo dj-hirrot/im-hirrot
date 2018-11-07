@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :authenticate_user!, only: []
+  before_action :authenticate_user!, only: [:favorites]
   before_action :user_confirmed?, except: [:index, :show]
   before_action :is_admin?, except: [:index, :show]
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
@@ -62,6 +62,10 @@ class BlogsController < ApplicationController
   def destroy
     @blog.destroy
     redirect_to blogs_url, notice: 'ブログを削除しました'
+  end
+
+  def favorites
+    @favorites = Blog.where(id: current_user.favorites.pluck(:blog_id)).page(params[:page]).per(PER)
   end
 
   private

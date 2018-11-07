@@ -1,4 +1,4 @@
-<div class="<%= user_signed_in? ? 'col-10' : 'col-12' %>" style="padding: 0px;">
+<div class="col-10" style="padding: 0px;">
   <%= link_to blog, class: 'not-underline' do %>
     <article class="media">
       <div class="media-image-area">
@@ -47,4 +47,19 @@
       <%= render "apis/favorites/favorite", blog: blog %>
     </div>
   </div>
+<% else %>
+  <div class="col-2 favorite-btn-area">
+    <i id="prompt-login-<%= blog.id %>" class="far fa-star favorite-btn" style="cursor: pointer;"></i>
+  </div>
 <% end %>
+<script type="text/javascript">
+  $('#prompt-login-<%= blog.id %>').click(function() {
+    swal({
+      title: "ログインしてください！",
+      text: "お気に入りはログインすることで利用できます。お気に入りすることで、気になる記事を保存することができるようになります。",
+      icon: "warning",
+      buttons: true,
+      dangerMode: true,
+    });
+  });
+</script>

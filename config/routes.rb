@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   resources :blogs do
     post "/comment" => "comments#create", as: "comment"
     delete "/comment/:comment_id" => "comments#destroy", as: "comments"
+    collection do
+      get "/favorites" => "blogs#favorites", as: "favorites"
+    end
   end
   post "/topic" => "topics#create", as: "topic"
   delete "/topic/:id" => "topics#destroy", as: "topics"
