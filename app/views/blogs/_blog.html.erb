@@ -41,14 +41,12 @@
     </article>
   <% end %>
 </div>
-<% if user_signed_in? %>
   <div class="col-2 favorite-btn-area">
-    <div id="blog-<%= blog.id %>" data-blog-id="<%= blog.id %>">
-      <%= render "apis/favorites/favorite", blog: blog %>
-    </div>
+    <% if user_signed_in? %>
+      <div id="blog-<%= blog.id %>" data-blog-id="<%= blog.id %>">
+        <%= render "apis/favorites/favorite", blog: blog %>
+      </div>
+    <% else %>
+      <i class="far fa-star favorite-btn" style="cursor: pointer;" onclick="promptLogin()"></i>
+    <% end %>
   </div>
-<% else %>
-  <div class="col-2 favorite-btn-area">
-    <i class="far fa-star favorite-btn" style="cursor: pointer;" onclick="promptLogin()"></i>
-  </div>
-<% end %>
