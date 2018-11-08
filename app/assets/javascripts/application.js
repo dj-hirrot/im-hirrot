@@ -28,14 +28,15 @@ document.addEventListener('turbolinks:load', function() {
   var $win = $(window), $header = $('#global-nav'), headerHeight = $header.outerHeight(), startPos = 0;
 
   $win.on('load scroll', function() {
-    console.log("hey!");
     var value = $(this).scrollTop();
     if ( value > startPos && value > headerHeight ) {
-      console.log("true!");
       $header.css('top', '-' + headerHeight + 'px');
     } else {
-      console.log("false!");
       $header.css('top', '0');
+    }
+    if ($('.navToggle').hasClass('open') || $('.nav').hasClass('open')) {
+      $(".navToggle").removeClass("open");
+      $("nav").removeClass("open");
     }
     startPos = value;
   });
