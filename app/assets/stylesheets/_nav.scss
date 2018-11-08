@@ -1,3 +1,7 @@
+header
+{
+  transition: .5s;
+}
 nav#global-nav
 {
   width: 100%;
@@ -13,12 +17,14 @@ nav#global-nav
 
   &.open
   {
+    transition: .5s;
     height: 350px;
     background-color: rgba(0, 0, 0, .8);
   }
 
   ul
   {
+    transition: .5s;
     @media all and (min-width: 480px)
     {
       padding-top: 80px;

@@ -8,21 +8,36 @@
 //= require_tree .
 document.addEventListener('turbolinks:load', function() {
   // hide header
-  var startPos = 0, winScrollTop = 0;
-  $(window).on('scroll', function() {
-    winScrollTop = $(this).scrollTop();
-    if (winScrollTop >= startPos) {
-      $('#header').addClass('hide');
-      $("nav#global-nav").removeClass("open");
-      $(".navToggle").removeClass("open");
+  // var startPos = 0, winScrollTop = 0;
+  // $(window).on('scroll', function() {
+  //   winScrollTop = $(this).scrollTop();
+  //   if (winScrollTop >= startPos) {
+  //     $('#header').addClass('hide');
+  //     $("nav#global-nav").removeClass("open");
+  //     $(".navToggle").removeClass("open");
+  //   } else {
+  //     $('#header').removeClass('hide');
+  //   }
+  //   if (winScrollTop > 0) {
+  //     startPos = winScrollTop;
+  //   } else {
+  //     startPos = 0;
+  //   }
+  // });
+
+  var $win = $(window), $header = $('#global-nav'), headerHeight = $header.outerHeight(), startPos = 0;
+
+  $win.on('load scroll', function() {
+    console.log("hey!");
+    var value = $(this).scrollTop();
+    if ( value > startPos && value > headerHeight ) {
+      console.log("true!");
+      $header.css('top', '-' + headerHeight + 'px');
     } else {
-      $('#header').removeClass('hide');
+      console.log("false!");
+      $header.css('top', '0');
     }
-    if (winScrollTop > 0) {
-      startPos = winScrollTop;
-    } else {
-      startPos = 0;
-    }
+    startPos = value;
   });
 
   // navigation
