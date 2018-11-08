@@ -7,3 +7,11 @@ function promptLogin() {
     dangerMode: true,
   });
 }
+
+document.addEventListener('turbolinks:load', function() {
+  $('#toggle-news').click(function() {
+    $(this).toggleClass('fa-toggle-off');
+    $(this).toggleClass('fa-toggle-on');
+    $('#news-wrapper').slideToggle();
+  });
+});

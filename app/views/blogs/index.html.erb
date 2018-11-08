@@ -6,8 +6,13 @@
         <%= link_to 'New Blog', new_blog_path, class: 'btn btn-dark btn-lg' %>
       <% end %>
       <div class="news-area my-4">
-        <h2 class="news-heading">新着情報</h2>
-        <ul class="news-wrapper area-break">
+        <div class="news-heading clearfix">
+          <h2 class="float-left">NEWS</h2>
+          <span class="float-right">
+            <i id="toggle-news" class="fas fa-toggle-off fa-2x"></i>
+          </span>
+        </div>
+        <ul id="news-wrapper" class="news-wrapper area-break">
           <% @topics.each do |topic| %>
             <li>
               <div class="text-right pr-3">
