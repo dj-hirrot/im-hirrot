@@ -10,7 +10,7 @@ class BlogsController < ApplicationController
   # GET /blogs.json
   def index
     @pined_blog = Blog.find_by(is_pin: true)
-    @blogs = Blog.not_pined.order(published_on: :desc).page(params[:page]).per(PER)
+    @blogs = Blog.not_pined.order(created_at: :desc).page(params[:page]).per(PER)
     @topics = Topic.all.order(created_at: :desc)
   end
 
