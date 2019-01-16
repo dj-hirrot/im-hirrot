@@ -6,7 +6,11 @@
     <%= csp_meta_tag %>
     <%= favicon_link_tag('favicon.ico') %>
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <%= show_meta_tags %>
+    <% if controller_name == 'blogs' && action_name == 'show' %>
+      <%= show_meta_tags(title: @blog.title, description: @blog.content.truncate(20)) %>
+    <% else %>
+      <%= show_meta_tags %>
+    <% end %>
 
     <link href="https://fonts.googleapis.com/css?family=Bai+Jamjuree" rel="stylesheet">
     <link href="https://fonts.googleapis.com/earlyaccess/roundedmplus1c.css" rel="stylesheet" />

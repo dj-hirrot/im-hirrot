@@ -1,9 +1,9 @@
 module ApplicationHelper
   require 'meta-tags'
 
-  def show_meta_tags
+  def show_meta_tags(options={})
     if display_meta_tags.blank?
-      assign_meta_tags
+      assign_meta_tags(options)
     end
 
     display_meta_tags
