@@ -19,7 +19,7 @@ gem 'jquery-rails'
 # devise
 gem 'devise'
 
-# devise
+# dotfile
 gem 'dotenv-rails'
 
 # mark down
