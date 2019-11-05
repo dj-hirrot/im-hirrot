@@ -69,23 +69,23 @@ class BlogsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_blog
-      @blog = Blog.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_blog
+    @blog = Blog.find(params[:id])
+  end
 
-    def unpined
-      Blog.update_all(is_pin: false) unless blog_params[:is_pin] == '0' || @blog.is_pin?
-    end
+  def unpined
+    Blog.update_all(is_pin: false) unless blog_params[:is_pin] == '0' || @blog.is_pin?
+  end
 
-    def reject_not_admin
-      if !current_user.try(:admin?) && !@blog.published_on
-        redirect_to blogs_path, alert: 'この記事は管理者以外のユーザーには閲覧が制限されています'
-      end
+  def reject_not_admin
+    if !current_user.try(:admin?) && !@blog.published_on
+      redirect_to blogs_path, alert: 'この記事は管理者以外のユーザーには閲覧が制限されています'
     end
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def blog_params
-      params.require(:blog).permit(:title, :content, :public_scope, :public, :published_on, :tag_list, :is_pin)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def blog_params
+    params.require(:blog).permit(:title, :content, :public_scope, :public, :published_on, :tag_list, :is_pin)
+  end
 end
