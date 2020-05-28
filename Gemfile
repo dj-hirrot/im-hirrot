@@ -35,7 +35,7 @@ gem 'meta-tags'
 gem 'social-share-button'
 
 # pagenation
-gem 'kaminari', '~> 0.17.0'
+gem 'kaminari', '~> 1.2.1'
 
 group :development, :test do
   gem 'mysql2', '>= 0.4.4', '< 0.6.0'
