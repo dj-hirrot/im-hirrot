@@ -23,7 +23,7 @@ gem 'devise'
 gem 'dotenv-rails'
 
 # mark down
-gem 'redcarpet', '~> 2.3.0'
+gem 'redcarpet', '~> 3.5.1'
 gem 'coderay'
 gem 'rouge'
 
